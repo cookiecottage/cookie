@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+@theme {
+  /* Warm & earthy palette */
+  --color-cream: #faf4ea;
+  --color-ivory: #fffdf8;
+  --color-sand: #f0e6d6;
+  --color-caramel: #d9a066;
+  --color-terracotta: #c06b4a;
+  --color-terracotta-dark: #a8543a;
+  --color-sage: #8a9a7b;
+  --color-sage-dark: #6d7d5c;
+  --color-cocoa: #4a3b32;
+  --color-cocoa-light: #6f5b4e;
+
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-nunito);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf4ea;
+  --foreground: #4a3b32;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+/* Subtle decorative dotted divider */
+.dot-divider {
+  background-image: radial-gradient(
+    circle,
+    var(--color-caramel) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 16px 16px;
 }
