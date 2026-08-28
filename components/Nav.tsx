@@ -2,18 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CookieIllustration from "./CookieIllustration";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "Meet the Baker" },
-  { href: "/custom-cookies", label: "Custom Cookies" },
+  { href: "#story", label: "Meet the Baker" },
+  { href: "#pricing", label: "Custom Cookies" },
+  { href: "#order", label: "Order" },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-sand/70 bg-cream/85 backdrop-blur">
@@ -34,10 +43,13 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => {
-            const active = pathname === link.href;
+            const active =
+              link.href === "/"
+                ? pathname === "/" && !hash
+                : hash === link.href;
+
             return (
               <li key={link.href}>
                 <Link
@@ -53,7 +65,7 @@ export default function Nav() {
           })}
           <li>
             <Link
-              href="/custom-cookies#order"
+              href="#order"
               className="rounded-full bg-terracotta px-5 py-2 text-sm font-semibold text-ivory shadow-sm transition-colors hover:bg-terracotta-dark"
             >
               Order Now
@@ -61,7 +73,6 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -73,7 +84,6 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
         <ul className="flex flex-col gap-1 border-t border-sand/70 bg-cream px-5 py-3 md:hidden">
           {links.map((link) => (
@@ -89,7 +99,7 @@ export default function Nav() {
           ))}
           <li>
             <Link
-              href="/custom-cookies#order"
+              href="#order"
               onClick={() => setOpen(false)}
               className="mt-1 block rounded-full bg-terracotta px-3 py-2 text-center font-semibold text-ivory"
             >

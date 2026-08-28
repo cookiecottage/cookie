@@ -23,17 +23,17 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-ivory">
+              <Link href="#story" className="hover:text-ivory">
                 Meet the Baker
               </Link>
             </li>
             <li>
-              <Link href="/custom-cookies" className="hover:text-ivory">
+              <Link href="#pricing" className="hover:text-ivory">
                 Custom Cookies &amp; Pricing
               </Link>
             </li>
             <li>
-              <Link href="/custom-cookies#order" className="hover:text-ivory">
+              <Link href="#order" className="hover:text-ivory">
                 Place an Order
               </Link>
             </li>
