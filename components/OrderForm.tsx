@@ -2,10 +2,19 @@
 
 import { useState, type FormEvent } from "react";
 
-const tiers = ["Classic", "Detailed", "Elaborate", "Not sure yet"];
+function datePlusDays(days: number) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + days);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
 
 export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
+  const minPickup = datePlusDays(7);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,18 +25,18 @@ export default function OrderForm() {
     return (
       <div className="rounded-3xl border border-sand bg-ivory p-10 text-center shadow-sm">
         <h3 className="font-serif text-2xl text-terracotta-dark">
-          Thank you!
+          Your order is in!
         </h3>
         <p className="mt-3 text-cocoa-light">
-          Your inquiry has been received. We&apos;ll be in touch soon to start
-          designing your cookies.
+          We&apos;ll be in touch soon to confirm your pickup day and design
+          details.
         </p>
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-6 rounded-full border-2 border-terracotta px-6 py-2 font-semibold text-terracotta transition-colors hover:bg-terracotta hover:text-ivory"
+          className="mt-6 rounded-full border-2 border-terracotta px-6 py-2 font-semibold text-terracotta hover:bg-terracotta hover:text-ivory active:scale-[0.97] active:bg-terracotta-dark active:text-ivory"
         >
-          Submit another inquiry
+          Place another order
         </button>
       </div>
     );
@@ -45,7 +54,7 @@ export default function OrderForm() {
             required
             type="text"
             name="name"
-            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none focus:border-terracotta"
+            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none hover:border-caramel focus:border-terracotta"
           />
         </label>
         <label className="flex flex-col gap-1.5 text-sm font-semibold text-cocoa">
@@ -54,33 +63,35 @@ export default function OrderForm() {
             required
             type="email"
             name="email"
-            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none focus:border-terracotta"
+            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none hover:border-caramel focus:border-terracotta"
           />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-sm font-semibold text-cocoa">
-          Event date
+          Pickup date
           <input
+            required
             type="date"
-            name="date"
-            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none focus:border-terracotta"
+            name="pickupDate"
+            min={minPickup}
+            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none hover:border-caramel focus:border-terracotta"
           />
+          <span className="font-normal text-xs text-cocoa-light">
+            At least 7 days from today.
+          </span>
         </label>
         <label className="flex flex-col gap-1.5 text-sm font-semibold text-cocoa">
-          Cookie tier
+          How many dozen?
           <select
-            name="tier"
-            defaultValue=""
-            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none focus:border-terracotta"
+            name="dozens"
+            defaultValue="2"
+            className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none hover:border-caramel focus:border-terracotta"
           >
-            <option value="" disabled>
-              Select a tier
-            </option>
-            {tiers.map((t) => (
-              <option key={t} value={t}>
-                {t}
+            {[2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <option key={n} value={n}>
+                {n} dozen{n === 2 ? " ($90)" : ` ($${90 + (n - 2) * 45})`}
               </option>
             ))}
           </select>
@@ -88,21 +99,21 @@ export default function OrderForm() {
       </div>
 
       <label className="flex flex-col gap-1.5 text-sm font-semibold text-cocoa">
-        Tell us about your order
+        Tell us about your design
         <textarea
           required
           name="details"
           rows={5}
-          placeholder="Occasion, theme, colors, quantity, and any design ideas..."
+          placeholder="Occasion, theme, colors, and any design ideas..."
           className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none focus:border-terracotta"
         />
       </label>
 
       <button
         type="submit"
-        className="justify-self-start rounded-full bg-terracotta px-8 py-3 font-semibold text-ivory transition-colors hover:bg-terracotta-dark"
+        className="justify-self-start rounded-full bg-terracotta px-8 py-3 font-semibold text-ivory shadow-sm hover:bg-terracotta-dark hover:shadow-md active:scale-[0.97] active:brightness-95"
       >
-        Send Inquiry
+        Place Order
       </button>
     </form>
   );
