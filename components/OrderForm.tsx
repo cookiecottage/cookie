@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 function datePlusDays(days: number) {
   const d = new Date();
@@ -14,7 +14,11 @@ function datePlusDays(days: number) {
 
 export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
-  const minPickup = datePlusDays(7);
+  const [minPickup, setMinPickup] = useState("");
+
+  useEffect(() => {
+    setMinPickup(datePlusDays(7));
+  }, []);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -75,7 +79,7 @@ export default function OrderForm() {
             required
             type="date"
             name="pickupDate"
-            min={minPickup}
+            min={minPickup || undefined}
             className="rounded-xl border border-sand bg-cream px-4 py-2.5 font-normal text-cocoa outline-none hover:border-caramel focus:border-terracotta"
           />
           <span className="font-normal text-xs text-cocoa-light">
