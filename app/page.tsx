@@ -76,10 +76,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
           <div>
-            <span className="inline-block rounded-full bg-sand px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sage-dark">
-              Small-batch · Handmade
-            </span>
-            <h1 className="mt-5 font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl md:text-6xl">
+            <h1 className="font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl md:text-6xl">
               Where cookies become little works of art
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-cocoa-light">
@@ -159,10 +156,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div>
-              <span className="inline-block rounded-full bg-sand px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sage-dark">
-                Our Story
-              </span>
-              <h2 className="mt-5 font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl">
+              <h2 className="font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl">
                 Meet the baker
               </h2>
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-cocoa-light">
@@ -254,10 +248,7 @@ export default function Home() {
       <section id="pricing" className="scroll-mt-24">
         <div className="mx-auto max-w-6xl px-5 pb-10 pt-16 md:pb-12 md:pt-20">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-sand px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sage-dark">
-              Custom Orders
-            </span>
-            <h2 className="mt-5 font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl">
+            <h2 className="font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl">
               Custom cookies & pricing
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-cocoa-light">

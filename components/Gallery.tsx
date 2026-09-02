@@ -58,10 +58,7 @@ export default function Gallery() {
     <section id="gallery" className="scroll-mt-24 bg-cream">
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block rounded-full bg-sand px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sage-dark">
-            Recent sets
-          </span>
-          <h2 className="mt-5 font-serif text-3xl text-terracotta-dark sm:text-4xl">
+          <h2 className="font-serif text-3xl text-terracotta-dark sm:text-4xl">
             Artwork you can eat
           </h2>
           <p className="mt-4 text-cocoa-light">
