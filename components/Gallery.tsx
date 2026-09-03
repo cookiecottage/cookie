@@ -100,7 +100,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="scroll-mt-24 bg-cream">
+    <section id="gallery" className="scroll-mt-24">
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-serif text-3xl text-terracotta-dark sm:text-4xl">

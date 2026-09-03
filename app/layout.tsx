@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Karla } from "next/font/google";
 import "./globals.css";
+import BackgroundLogo from "@/components/BackgroundLogo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
@@ -33,10 +34,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${cormorant.variable} ${karla.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-cream text-cocoa">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="relative flex min-h-full flex-col bg-cream text-cocoa">
+        <BackgroundLogo />
+        <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
