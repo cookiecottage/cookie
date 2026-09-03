@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/public/images/logo.jpg";
+import logo from "@/public/images/logo.png";
 
 type LogoProps = {
   className?: string;
@@ -16,7 +16,6 @@ export default function Logo({
     <Image
       src={logo}
       alt="Little Cookie Cottage"
-      placeholder="blur"
       preload={preload}
       sizes={sizes}
       className={className}

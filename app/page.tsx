@@ -9,17 +9,17 @@ const highlights = [
   {
     title: "Made from Scratch",
     body: "Every cookie starts with real butter, pure vanilla and a soft, tender sugar-cookie recipe our customers rave about.",
-    photo: "/images/gallery/18.jpg",
-  },
-  {
-    title: "Hand-Decorated",
-    body: "Each design is piped and painted by hand with royal icing — no two batches are ever exactly alike.",
     photo: "/images/gallery/20.jpg",
   },
   {
-    title: "Made to Order",
-    body: "From bridal showers to birthdays, your cookies are custom-designed to match your colors, theme and vision.",
-    photo: "/images/gallery/24.jpg",
+    title: "Hand-Decorated",
+    body: "Designs are hand-piped and painted with royal icing — no two batches are ever exactly alike.",
+    photo: "/images/gallery/18.jpg",
+  },
+  {
+    title: "Printed",
+    body: "We also print custom artwork onto cookies — logos, photos, and extra-detailed designs piping can't always capture.",
+    photo: "/images/gallery/13.jpg",
   },
 ];
 
@@ -155,7 +155,7 @@ export default function Home() {
       <section id="story" className="scroll-mt-24 bg-sage/15">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
+            <div className="rounded-[2.5rem] border border-sand bg-ivory p-8 shadow-sm md:p-10">
               <h2 className="font-serif text-4xl leading-tight text-terracotta-dark sm:text-5xl">
                 Meet the baker
               </h2>
@@ -208,7 +208,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-cream">
+      <section>
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
